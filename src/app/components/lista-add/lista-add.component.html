@@ -1,0 +1,12 @@
+<form (ngSubmit)="agregar()">
+
+    <div class="form-group">
+        <label for="txtName"></label>
+        <input id="txtName" type="text" class="form-control" placeholder="Ingresa tu nombre" name="name" [(ngModel)]="item.name">
+    </div>
+
+
+
+    <button class="btn btn-success btn-block" type="submit">Agregar</button>
+
+</form>

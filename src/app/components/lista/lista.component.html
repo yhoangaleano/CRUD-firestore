@@ -1,0 +1,55 @@
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let item of items">
+
+        <div class="row">
+            <div class="col-md-8">
+                {{item.name}} - {{item.id}}
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button class="btn btn-block btn-outline-danger" type="button" (click)="eliminar(item)">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-block btn-outline-primary" type="button" (click)="editar(item)" data-toggle="modal" data-target="#modalEditItem">
+                            <i class="fa fa-pencil"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </li>
+
+</ul>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modalEditItem">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form (ngSubmit)="actualizar()">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Item - {{item.name}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="txtName"></label>
+                        <input id="txtName" type="text" class="form-control" placeholder="Ingresa tu nombre" name="name" [(ngModel)]="item.name">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button #closeModal type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button class="btn btn-primary">Guardar cambios</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
